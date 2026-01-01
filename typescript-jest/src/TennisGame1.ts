@@ -69,11 +69,15 @@ export class TennisGame1 implements TennisGame {
 
   private generateMoreThan4ScorePhrase(score: string) {
     const minusResult: number = this.m_score1 - this.m_score2;
-    if (minusResult === 1) score = "Advantage player1";
-    else if (minusResult === -1) score = "Advantage player2";
-    else if (minusResult >= 2) score = "Win for player1";
-    else score = "Win for player2";
-    return score;
+    switch (minusResult) {
+      case 1:
+        return "Advantage player1";
+      case -1:
+        return "Advantage player2";
+      default:
+        if (minusResult >= 2) return "Win for player1";
+        return "Win for player2";
+    }
   }
 
   private generateEqualScorePhrase(score: string, equalScoreValue: number) {
