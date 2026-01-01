@@ -44,7 +44,8 @@ export class TennisGame1 implements TennisGame {
   private generateStandardScorePhrase(tempScore: number, score: string) {
     for (let i = 1; i < 3; i++) {
       if (i === 1) tempScore = this.m_score1;
-      else {
+
+      if (i === 2) {
         score += "-";
         tempScore = this.m_score2;
       }
@@ -64,6 +65,7 @@ export class TennisGame1 implements TennisGame {
           break;
       }
     }
+
     return score;
   }
 
