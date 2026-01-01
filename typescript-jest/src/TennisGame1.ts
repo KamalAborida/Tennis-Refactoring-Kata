@@ -1,4 +1,5 @@
 import { TennisGame } from "./TennisGame";
+import { ScoreEnums } from "./helpers/ScoreEnums";
 
 export class TennisGame1 implements TennisGame {
   private m_score1: number = 0;
@@ -52,16 +53,16 @@ export class TennisGame1 implements TennisGame {
 
       switch (tempScore) {
         case 0:
-          score += "Love";
+          score += ScoreEnums.LOVE;
           break;
         case 1:
-          score += "Fifteen";
+          score += ScoreEnums.FIFTEEN;
           break;
         case 2:
-          score += "Thirty";
+          score += ScoreEnums.THIRTY;
           break;
         case 3:
-          score += "Forty";
+          score += ScoreEnums.FORTY;
           break;
       }
     }
@@ -73,28 +74,28 @@ export class TennisGame1 implements TennisGame {
     const minusResult: number = this.m_score1 - this.m_score2;
     switch (minusResult) {
       case 1:
-        return "Advantage player1";
+        return ScoreEnums.ADVANTAGE_PLAYER1;
       case -1:
-        return "Advantage player2";
+        return ScoreEnums.ADVANTAGE_PLAYER2;
       default:
-        if (minusResult >= 2) return "Win for player1";
-        return "Win for player2";
+        if (minusResult >= 2) return ScoreEnums.WIN_FOR_PLAYER1;
+        return ScoreEnums.WIN_FOR_PLAYER2;
     }
   }
 
   private generateEqualScorePhrase(score: string, equalScoreValue: number) {
     switch (equalScoreValue) {
       case 0:
-        score = "Love-All";
+        score = ScoreEnums.LOVE_ALL;
         break;
       case 1:
-        score = "Fifteen-All";
+        score = ScoreEnums.FIFTEEN_ALL;
         break;
       case 2:
-        score = "Thirty-All";
+        score = ScoreEnums.THIRTY_ALL;
         break;
       default:
-        score = "Deuce";
+        score = ScoreEnums.DEUCE;
         break;
     }
     return score;
