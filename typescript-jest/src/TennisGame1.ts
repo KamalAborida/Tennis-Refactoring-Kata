@@ -25,7 +25,8 @@ export class TennisGame1 implements TennisGame {
     let tempScore: number = 0;
 
     if (this.m_score1 === this.m_score2) {
-      score = this.generateEqualScorePhrase(score);
+      const equalScoreValue = this.m_score1 || this.m_score2 || 0;
+      score = this.generateEqualScorePhrase(score, equalScoreValue);
     } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
       const minusResult: number = this.m_score1 - this.m_score2;
       if (minusResult === 1) score = "Advantage player1";
@@ -59,8 +60,8 @@ export class TennisGame1 implements TennisGame {
     return score;
   }
 
-  private generateEqualScorePhrase(score: string) {
-    switch (this.m_score1) {
+  private generateEqualScorePhrase(score: string, equalScoreValue: number) {
+    switch (equalScoreValue) {
       case 0:
         score = "Love-All";
         break;
