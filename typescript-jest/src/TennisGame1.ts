@@ -37,8 +37,7 @@ export class TennisGame1 implements TennisGame {
       return score;
     }
 
-    ({ tempScore, score } = this.generateStandardScorePhrase(tempScore, score));
-
+    score = this.generateStandardScorePhrase(tempScore, score);
     return score;
   }
 
@@ -65,7 +64,7 @@ export class TennisGame1 implements TennisGame {
           break;
       }
     }
-    return { tempScore, score };
+    return score;
   }
 
   private generateMoreThan4ScorePhrase(score: string) {
