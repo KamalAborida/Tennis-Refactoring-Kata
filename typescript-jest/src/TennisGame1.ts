@@ -46,12 +46,7 @@ export class TennisGame1 implements TennisGame {
     const players = [this.player1Name, this.player2Name];
 
     players.forEach((player, index) => {
-      if (index === 0) tempScore = this.m_score1;
-
-      if (index === 1) {
-        score += "-";
-        tempScore = this.m_score2;
-      }
+      ({ tempScore, score } = this.checkWhichPlayer(index, tempScore, score));
 
       switch (tempScore) {
         case 0:
@@ -70,6 +65,16 @@ export class TennisGame1 implements TennisGame {
     });
 
     return score;
+  }
+
+  private checkWhichPlayer(index: number, tempScore: number, score: string) {
+    if (index === 0) tempScore = this.m_score1;
+
+    if (index === 1) {
+      score += "-";
+      tempScore = this.m_score2;
+    }
+    return { tempScore, score };
   }
 
   private generateMoreThan4ScorePhrase(score: string) {
