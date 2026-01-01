@@ -43,10 +43,12 @@ export class TennisGame1 implements TennisGame {
   }
 
   private generateStandardScorePhrase(tempScore: number, score: string) {
-    for (let i = 1; i < 3; i++) {
-      if (i === 1) tempScore = this.m_score1;
+    const players = [this.player1Name, this.player2Name];
 
-      if (i === 2) {
+    players.forEach((player, index) => {
+      if (index === 0) tempScore = this.m_score1;
+
+      if (index === 1) {
         score += "-";
         tempScore = this.m_score2;
       }
@@ -65,7 +67,7 @@ export class TennisGame1 implements TennisGame {
           score += ScoreEnums.FORTY;
           break;
       }
-    }
+    });
 
     return score;
   }
