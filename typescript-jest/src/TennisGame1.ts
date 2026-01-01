@@ -25,15 +25,19 @@ export class TennisGame1 implements TennisGame {
     let tempScore: number = 0;
     const areScoresEqual = this.m_score1 === this.m_score2;
     const isAScoreMoreThan4 = this.m_score1 >= 4 || this.m_score2 >= 4;
-    
+
     if (areScoresEqual) {
       const equalScoreValue = this.m_score1 || this.m_score2 || 0;
       score = this.generateEqualScorePhrase(score, equalScoreValue);
-    } else if (isAScoreMoreThan4) {
-      score = this.generateMoreThan4ScorePhrase(score);
-    } else {
-      ({ tempScore, score } = this.generateStandardScorePhrase(tempScore, score));
+      return score;
     }
+
+    if (isAScoreMoreThan4) {
+      score = this.generateMoreThan4ScorePhrase(score);
+      return score;
+    }
+
+    ({ tempScore, score } = this.generateStandardScorePhrase(tempScore, score));
 
     return score;
   }
