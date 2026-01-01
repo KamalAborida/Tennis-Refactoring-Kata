@@ -23,8 +23,9 @@ export class TennisGame1 implements TennisGame {
   getScore(): string {
     let score: string = "";
     let tempScore: number = 0;
-
-    if (this.m_score1 === this.m_score2) {
+    const isScoresEqual = this.m_score1 === this.m_score2;
+    
+    if (isScoresEqual) {
       const equalScoreValue = this.m_score1 || this.m_score2 || 0;
       score = this.generateEqualScorePhrase(score, equalScoreValue);
     } else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
