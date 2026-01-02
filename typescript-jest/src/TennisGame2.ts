@@ -27,7 +27,7 @@ export class TennisGame2 implements TennisGame {
 
     if (this.arePointsEqual() && this.P1point >= 3) score = "Deuce";
 
-    if (this.P1point > 0 && this.P2point === 0) {
+    if (this.isP2LoveAndP1NotLove()) {
       if (this.P1point === 1) this.P1res = "Fifteen";
       if (this.P1point === 2) this.P1res = "Thirty";
       if (this.P1point === 3) this.P1res = "Forty";
@@ -86,6 +86,10 @@ export class TennisGame2 implements TennisGame {
     }
 
     return score;
+  }
+
+  private isP2LoveAndP1NotLove() {
+    return this.P1point > 0 && this.P2point === 0;
   }
 
   private arePointsEqual() {
