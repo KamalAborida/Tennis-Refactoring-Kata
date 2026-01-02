@@ -29,12 +29,7 @@ export class TennisGame2 implements TennisGame {
     }
 
     if (this.isP1LoveAndP2NotLove()) {
-      if (this.P2point === 1) this.P2res = "Fifteen";
-      if (this.P2point === 2) this.P2res = "Thirty";
-      if (this.P2point === 3) this.P2res = "Forty";
-
-      this.P1res = "Love";
-      score = this.P1res + "-" + this.P2res;
+      score = this.generateP1LoveAndP2NotLoveScore(score);
     }
 
     if (this.P1point > this.P2point && this.P1point < 4) {
@@ -86,6 +81,16 @@ export class TennisGame2 implements TennisGame {
     if (this.P1point === 3) this.P1res = "Forty";
 
     this.P2res = "Love";
+    score = this.P1res + "-" + this.P2res;
+    return score;
+  }
+
+  private generateP1LoveAndP2NotLoveScore(score: string) {
+    if (this.P2point === 1) this.P2res = "Fifteen";
+    if (this.P2point === 2) this.P2res = "Thirty";
+    if (this.P2point === 3) this.P2res = "Forty";
+
+    this.P1res = "Love";
     score = this.P1res + "-" + this.P2res;
     return score;
   }
