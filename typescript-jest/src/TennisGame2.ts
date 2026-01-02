@@ -57,9 +57,7 @@ export class TennisGame2 implements TennisGame {
     }
 
     if (
-      this.P1point >= 4 &&
-      this.P2point >= 0 &&
-      this.P1point - this.P2point >= 2
+      this.isPlayer1WinCondition()
     ) {
       score = "Win for player1";
     }
@@ -73,6 +71,12 @@ export class TennisGame2 implements TennisGame {
     }
 
     return score;
+  }
+
+  private isPlayer1WinCondition() {
+    return this.P1point >= 4 &&
+      this.P2point >= 0 &&
+      this.P1point - this.P2point >= 2;
   }
 
   private generateP2LoveAndP1NotLoveScore(score: string) {
