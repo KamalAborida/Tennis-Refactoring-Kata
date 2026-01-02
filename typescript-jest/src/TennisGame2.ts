@@ -18,7 +18,7 @@ export class TennisGame2 implements TennisGame {
   getScore(): string {
     let score: string = "";
 
-    if (this.arePointsEqual() && this.P1point < 3) {
+    if (this.isXAll()) {
       if (this.P1point === 0) score = "Love";
       if (this.P1point === 1) score = "Fifteen";
       if (this.P1point === 2) score = "Thirty";
@@ -86,6 +86,10 @@ export class TennisGame2 implements TennisGame {
     }
 
     return score;
+  }
+
+  private isXAll() {
+    return this.arePointsEqual() && this.P1point < 3;
   }
 
   private isP2LoveAndP1NotLove() {
