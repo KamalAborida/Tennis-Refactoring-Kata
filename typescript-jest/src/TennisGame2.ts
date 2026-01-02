@@ -19,7 +19,7 @@ export class TennisGame2 implements TennisGame {
     let score: string = "";
 
     if (this.isXAll()) {
-      return this.generateXAllScore(score);
+      return this.generateXAllScore();
     }
 
     if (this.arePointsEqual() && this.P1point >= 3) score = "Deuce";
@@ -85,7 +85,8 @@ export class TennisGame2 implements TennisGame {
     return score;
   }
 
-  private generateXAllScore(score: string) {
+  private generateXAllScore() {
+    let score: string = "";
     if (this.P1point === 0) score = "Love";
     if (this.P1point === 1) score = "Fifteen";
     if (this.P1point === 2) score = "Thirty";
