@@ -61,9 +61,14 @@ export class TennisGame2 implements TennisGame {
     }
 
     if (this.isPlayer2WinCondition()) {
-      score = "Win for player2";
+      score = this.generatePlayer2WinScore(score);
     }
 
+    return score;
+  }
+
+  private generatePlayer2WinScore(score: string) {
+    score = "Win for player2";
     return score;
   }
 
