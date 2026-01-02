@@ -33,19 +33,11 @@ export class TennisGame2 implements TennisGame {
     }
 
     if (this.isPlayer1LeadingPreDeuce()) {
-      if (this.P1point === 2) this.P1res = "Thirty";
-      if (this.P1point === 3) this.P1res = "Forty";
-      if (this.P2point === 1) this.P2res = "Fifteen";
-      if (this.P2point === 2) this.P2res = "Thirty";
-      score = this.P1res + "-" + this.P2res;
+      score = this.generatePlayer1LeadingPreDeuceScore(score);
     }
 
     if (this.isPlayer2LeadingPreDeuce()) {
-      if (this.P2point === 2) this.P2res = "Thirty";
-      if (this.P2point === 3) this.P2res = "Forty";
-      if (this.P1point === 1) this.P1res = "Fifteen";
-      if (this.P1point === 2) this.P1res = "Thirty";
-      score = this.P1res + "-" + this.P2res;
+      score = this.generatePlayer2LeadingPreDeuceScore(score);
     }
 
     if (this.isPlayer1Advantage()) {
@@ -64,6 +56,24 @@ export class TennisGame2 implements TennisGame {
       score = this.generatePlayer2WinScore(score);
     }
 
+    return score;
+  }
+
+  private generatePlayer2LeadingPreDeuceScore(score: string) {
+    if (this.P2point === 2) this.P2res = "Thirty";
+    if (this.P2point === 3) this.P2res = "Forty";
+    if (this.P1point === 1) this.P1res = "Fifteen";
+    if (this.P1point === 2) this.P1res = "Thirty";
+    score = this.P1res + "-" + this.P2res;
+    return score;
+  }
+
+  private generatePlayer1LeadingPreDeuceScore(score: string) {
+    if (this.P1point === 2) this.P1res = "Thirty";
+    if (this.P1point === 3) this.P1res = "Forty";
+    if (this.P2point === 1) this.P2res = "Fifteen";
+    if (this.P2point === 2) this.P2res = "Thirty";
+    score = this.P1res + "-" + this.P2res;
     return score;
   }
 
