@@ -49,11 +49,11 @@ export class TennisGame2 implements TennisGame {
     }
 
     if (this.isPlayer1Advantage()) {
-      score = "Advantage player1";
+      score = this.generatePlayer1AdvantageScore(score);
     }
 
     if (this.isPlayer2Advantage()) {
-      score = "Advantage player2";
+      score = this.generatePlayer2AdvantageScore(score);
     }
 
     if (this.isPlayer1WinCondition()) {
@@ -64,6 +64,16 @@ export class TennisGame2 implements TennisGame {
       score = "Win for player2";
     }
 
+    return score;
+  }
+
+  private generatePlayer2AdvantageScore(score: string) {
+    score = "Advantage player2";
+    return score;
+  }
+
+  private generatePlayer1AdvantageScore(score: string) {
+    score = "Advantage player1";
     return score;
   }
 
