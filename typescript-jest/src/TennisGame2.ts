@@ -22,7 +22,7 @@ export class TennisGame2 implements TennisGame {
       score = this.generateXAllScore();
     }
 
-    if (this.isDeuce()) score = this.generateDeuceScore(score);
+    if (this.isDeuce()) score = this.generateDeuceScore();
 
     if (this.isP2LoveAndP1NotLove()) {
       score = this.generateP2LoveAndP1NotLoveScore(score);
@@ -105,8 +105,8 @@ export class TennisGame2 implements TennisGame {
     return score;
   }
 
-  private generateDeuceScore(score: string) {
-    score = "Deuce";
+  private generateDeuceScore() {
+    let score: string = "Deuce";
     return score;
   }
 
