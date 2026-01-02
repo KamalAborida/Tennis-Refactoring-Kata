@@ -22,7 +22,7 @@ export class TennisGame2 implements TennisGame {
       return this.generateXAllScore();
     }
 
-    if (this.arePointsEqual() && this.P1point >= 3) score = "Deuce";
+    if (this.isDeuce()) score = "Deuce";
 
     if (this.isP2LoveAndP1NotLove()) {
       if (this.P1point === 1) this.P1res = "Fifteen";
@@ -83,6 +83,10 @@ export class TennisGame2 implements TennisGame {
     }
 
     return score;
+  }
+
+  private isDeuce() {
+    return this.arePointsEqual() && this.P1point >= 3;
   }
 
   private generateXAllScore() {
