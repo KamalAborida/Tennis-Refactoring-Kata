@@ -49,11 +49,11 @@ export class TennisGame2 implements TennisGame {
     }
 
     if (this.isPlayer1WinCondition()) {
-      score = this.generatePlayer1WinScore(score);
+      score = this.generatePlayer1WinScore();
     }
 
     if (this.isPlayer2WinCondition()) {
-      score = this.generatePlayer2WinScore(score);
+      score = this.generatePlayer2WinScore();
     }
 
     return score;
@@ -87,12 +87,14 @@ export class TennisGame2 implements TennisGame {
     return this.P1point > this.P2point && this.P1point < 4;
   }
 
-  private generatePlayer2WinScore(score: string) {
+  private generatePlayer2WinScore() {
+    let score: string = "";
     score = "Win for player2";
     return score;
   }
 
-  private generatePlayer1WinScore(score: string) {
+  private generatePlayer1WinScore() {
+    let score: string = "";
     score = "Win for player1";
     return score;
   }
