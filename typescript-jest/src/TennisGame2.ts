@@ -25,11 +25,11 @@ export class TennisGame2 implements TennisGame {
     if (this.isDeuce()) score = this.generateDeuceScore();
 
     if (this.isP2LoveAndP1NotLove()) {
-      score = this.generateP2LoveAndP1NotLoveScore(score);
+      score = this.generateP2LoveAndP1NotLoveScore();
     }
 
     if (this.isP1LoveAndP2NotLove()) {
-      score = this.generateP1LoveAndP2NotLoveScore(score);
+      score = this.generateP1LoveAndP2NotLoveScore();
     }
 
     if (this.isPlayer1LeadingPreDeuce()) {
@@ -130,7 +130,8 @@ export class TennisGame2 implements TennisGame {
     );
   }
 
-  private generateP2LoveAndP1NotLoveScore(score: string) {
+  private generateP2LoveAndP1NotLoveScore() {
+    let score: string = "";
     if (this.P1point === 1) this.P1res = "Fifteen";
     if (this.P1point === 2) this.P1res = "Thirty";
     if (this.P1point === 3) this.P1res = "Forty";
@@ -140,7 +141,8 @@ export class TennisGame2 implements TennisGame {
     return score;
   }
 
-  private generateP1LoveAndP2NotLoveScore(score: string) {
+  private generateP1LoveAndP2NotLoveScore() {
+    let score: string = "";
     if (this.P2point === 1) this.P2res = "Fifteen";
     if (this.P2point === 2) this.P2res = "Thirty";
     if (this.P2point === 3) this.P2res = "Forty";
