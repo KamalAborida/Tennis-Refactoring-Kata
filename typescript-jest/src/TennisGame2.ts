@@ -18,7 +18,7 @@ export class TennisGame2 implements TennisGame {
   getScore(): string {
     let score: string = "";
 
-    if (this.arePointsEqual() && this.P1point < 4) {
+    if (this.arePointsEqual() && this.P1point < 3) {
       if (this.P1point === 0) score = "Love";
       if (this.P1point === 1) score = "Fifteen";
       if (this.P1point === 2) score = "Thirty";
