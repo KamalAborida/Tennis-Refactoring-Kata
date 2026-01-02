@@ -52,7 +52,7 @@ export class TennisGame2 implements TennisGame {
       score = "Advantage player1";
     }
 
-    if (this.P2point > this.P1point && this.P1point >= 3) {
+    if (this.isPlayer2Advantage()) {
       score = "Advantage player2";
     }
 
@@ -65,6 +65,10 @@ export class TennisGame2 implements TennisGame {
     }
 
     return score;
+  }
+
+  private isPlayer2Advantage() {
+    return this.P2point > this.P1point && this.P1point >= 3;
   }
 
   private isPlayer1Advantage() {
