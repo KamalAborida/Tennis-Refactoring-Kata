@@ -19,7 +19,7 @@ export class TennisGame2 implements TennisGame {
     let score: string = "";
 
     if (this.isXAll()) {
-      return this.generateXAllScore();
+      score = this.generateXAllScore();
     }
 
     if (this.isDeuce()) score = "Deuce";
